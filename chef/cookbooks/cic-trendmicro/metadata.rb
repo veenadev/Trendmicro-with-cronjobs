@@ -1,0 +1,7 @@
+name             'cic-trendmicro'
+maintainer       'YOUR_NAME'
+maintainer_email 'YOUR_EMAIL'
+license          'All rights reserved'
+description      'Installs/Configures cic-trendmicro'
+long_description 'Installs/Configures cic-trendmicro'
+version          '0.1.0'

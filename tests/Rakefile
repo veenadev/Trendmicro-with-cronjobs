@@ -1,0 +1,22 @@
+require 'rake'
+require 'rspec/core/rake_task'
+require 'json'
+
+prop_file = ENV['PROPERTIES_PATH'] || File.dirname(__FILE__) + '/properties.json'
+file = File.read(prop_file)
+properties = JSON.parse(file)
+
+desc "Run serverspec to all hosts"
+task :spec => ['serverspec:all']
+hosts ||= []
+hosts << properties["host"]
+
+# Run ServerSpec
+namespace :serverspec do
+  task :all => hosts.map {|h| 'serverspec:' + h.split('.')[0] }  
+  RSpec::Core::RakeTask.new(properties["host"].split('.')[0].to_sym) do |t|
+    t.pattern = 'integration/default/*.rb'
+    t.fail_on_error = false
+    t.verbose = true
+  end
+end

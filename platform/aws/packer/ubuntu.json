@@ -1,0 +1,61 @@
+{
+  "variables": {
+    "atlas_username":  "{{env `ATLAS_USERNAME`}}",
+    "aws_access_key":  "{{env `AWS_ACCESS_KEY_ID`}}",
+    "aws_secret_key":  "{{env `AWS_SECRET_ACCESS_KEY`}}",
+    "aws_region":      "{{env `AWS_DEFAULT_REGION`}}",
+    "base_ami":        "{{env `BASE_AMI`}}",
+    "chef_dir":        "chef/cookbooks",
+    "dns_listen_addr": "0.0.0.0",
+    "name":            "aws-{{env `AWS_DEFAULT_REGION`}}-ubuntu-trendmicro",
+    "scripts_dir":     "data/scripts",
+    "service_name":    "trendmicro",
+    "ssh_username":    "ubuntu"
+  },
+  "builders": [
+    {
+      "name":            "{{user `name`}}",
+      "type":            "amazon-ebs",
+      "access_key":      "{{user `aws_access_key`}}",
+      "secret_key":      "{{user `aws_secret_key`}}",
+      "region":          "{{user `aws_region`}}",
+      "source_ami":      "{{user `base_ami`}}",
+      "instance_type":   "t2.small",
+      "ssh_username":    "{{user `ssh_username`}}",
+      "ssh_timeout":     "10m",
+      "ami_name":        "{{user `name`}} {{timestamp}}",
+      "ami_description": "{{user `name`}} AMI",
+      "run_tags":        { "ami-create": "{{user `name`}}" },
+      "tags":            { "ami": "{{user `name`}}" },
+      "ssh_private_ip":  false,
+      "associate_public_ip_address": true
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "echo {{user `ssh_username`}} | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+      "script": "data/scripts/trendmicro_setup.sh"
+    },
+    {
+      "type": "chef-solo",
+      "cookbook_paths": ["{{user `chef_dir`}}/vendor"],
+      "run_list": ["cic-{{user `service_name`}}::packer"],
+      "data_bags_path": "chef/data_bags"
+    },
+    {
+      "type": "shell",
+      "execute_command": "echo {{user `ssh_username`}} | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+      "script": "data/scripts/cleanup.sh"
+    }
+  ],  
+  "post-processors": [
+    {
+      "type": "json-updater",
+      "only": ["{{user `name`}}"],
+      "ami_id": {
+        "target/ami.terraform.tfvars.json": ["ami_id"]
+      }
+    }
+  ]
+}

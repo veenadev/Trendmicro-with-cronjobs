@@ -1,0 +1,9 @@
+variable "aws_region" {}
+variable "environment" {}
+variable "azs" {}
+variable "ami_id" {}
+variable "instance_type" {}
+variable "product_name" {}
+variable "owner" {}
+variable "my_ip" {}
+variable "public_key" {}

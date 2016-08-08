@@ -39,4 +39,4 @@ Include `cic-trendmicro` in your node's `run_list`:
 
 ## License and Authors
 
-Author:: YOUR_NAME (<YOUR_EMAIL>)
+Author:: Shubham Dhoka (<shubham.dhoka@reancloud.com>)

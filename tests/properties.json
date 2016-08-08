@@ -4,5 +4,6 @@
 	"key": "",
 	"user": "",
 	"password": "",
-	"roles": {}
+	"roles": {},
+        "s3_pem_key_path_uri": ""
 }

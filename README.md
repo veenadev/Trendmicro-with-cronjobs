@@ -1,4 +1,4 @@
-# Chef role for: Trend Micro
+# Chef role for Trend Micro's Deep Security agent
 
 ## Prerequisites
 * Install Chef

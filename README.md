@@ -1,4 +1,4 @@
-# App Cartridge: trendmicro
+# Chef role for: Trend Micro
 
 ## Prerequisites
 * Install Chef

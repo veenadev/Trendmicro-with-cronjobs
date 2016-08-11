@@ -1,7 +1,13 @@
 require 'spec_helper'
-
-describe package('ds_agent') do
-  it { should be_installed }
+if os[:family] == 'redhat'
+  describe package('ds_agent') do
+    it { should be_installed }
+  end
+ 
+elsif ['ubuntu'].include?(os[:family])
+  describe package('ds-agent') do
+    it { should be_installed }
+  end
 end
 
 

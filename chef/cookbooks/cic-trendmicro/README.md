@@ -1,10 +1,13 @@
 # cic-trendmicro-cookbook
 
-TODO: Enter the cookbook description here.
+TODO: The cookbook installs Trend Micro's Deep security agent
 
 ## Supported Platforms
 
 TODO: List your supported platforms.
+
+* Ubuntu - (12.04+)
+* Centos - (6.0+)
 
 ## Attributes
 

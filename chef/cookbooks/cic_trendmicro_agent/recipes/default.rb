@@ -6,4 +6,4 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-include_recipe 'cic-trendmicro::default'
+include_recipe 'cic_trendmicro_agent::trend_micro'

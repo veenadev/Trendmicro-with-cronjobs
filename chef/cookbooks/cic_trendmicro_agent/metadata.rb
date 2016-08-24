@@ -1,4 +1,4 @@
-name             'cic-trendmicro'
+name             'cic_trendmicro_agent'
 maintainer       'YOUR_NAME'
 maintainer_email 'YOUR_EMAIL'
 license          'All rights reserved'

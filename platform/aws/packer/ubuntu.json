@@ -7,9 +7,9 @@
     "base_ami":        "{{env `BASE_AMI`}}",
     "chef_dir":        "chef/cookbooks",
     "dns_listen_addr": "0.0.0.0",
-    "name":            "aws-{{env `AWS_DEFAULT_REGION`}}-ubuntu-trendmicro",
+    "name":            "aws-{{env `AWS_DEFAULT_REGION`}}-ubuntu-trendmicro_agent",
     "scripts_dir":     "data/scripts",
-    "service_name":    "trendmicro",
+    "service_name":    "trendmicro_agent",
     "ssh_username":    "ubuntu"
   },
   "builders": [
@@ -35,12 +35,12 @@
     {
       "type": "shell",
       "execute_command": "echo {{user `ssh_username`}} | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
-      "script": "data/scripts/trendmicro_setup.sh"
+      "script": "data/scripts/trendmicro_agent_setup.sh"
     },
     {
       "type": "chef-solo",
       "cookbook_paths": ["{{user `chef_dir`}}/vendor"],
-      "run_list": ["cic-{{user `service_name`}}::packer"],
+      "run_list": ["cic_{{user `service_name`}}::default"],
       "data_bags_path": "chef/data_bags"
     },
     {

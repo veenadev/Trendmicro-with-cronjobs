@@ -4,7 +4,7 @@ if os[:family] == 'redhat'
     it { should be_installed }
   end
  
-elsif ['ubuntu'].include?(os[:family])
+elsif ['debian'].include?(os[:family])
   describe package('ds-agent') do
     it { should be_installed }
   end

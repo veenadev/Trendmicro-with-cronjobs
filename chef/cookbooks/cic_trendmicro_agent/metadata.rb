@@ -1,6 +1,6 @@
 name             'cic_trendmicro_agent'
-maintainer       'YOUR_NAME'
-maintainer_email 'YOUR_EMAIL'
+maintainer       'Shubham Dhoka'
+maintainer_email 'shubham.dhoka@reancloud.com'
 license          'All rights reserved'
 description      'Installs/Configures cic-trendmicro'
 long_description 'Installs/Configures cic-trendmicro'

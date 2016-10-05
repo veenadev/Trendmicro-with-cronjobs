@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: cic-trendmicro
+# Cookbook Name:: chef-trendmicro
 # Recipe:: default
 #
 # Copyright (C) 2016 YOUR_NAME

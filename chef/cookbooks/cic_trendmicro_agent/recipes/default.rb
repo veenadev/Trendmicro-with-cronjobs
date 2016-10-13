@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: chef-trendmicro
+# Cookbook Name:: cic_trendmicro_agent
 # Recipe:: default
 #
 # Copyright (C) 2016 YOUR_NAME

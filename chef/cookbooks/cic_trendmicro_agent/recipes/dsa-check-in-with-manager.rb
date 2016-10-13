@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: deep-security-agent
+# Cookbook Name:: cic_trendmicro_agent
 # Recipe:: Check-in with the Deep Security manager
 #
 # Copyright 2015, Trend Micro

@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: deep-security-agent
+# Cookbook Name:: cic_trendmicro_agent
 # Recipe:: Re-build an integrity baseline for the node
 #
 # Copyright 2015, Trend Micro

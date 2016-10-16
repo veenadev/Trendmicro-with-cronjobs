@@ -7,13 +7,22 @@ provisioner:
 
 platforms:
   - name: ubuntu-12.04
-  - name: ubuntu-14.04
-  - name: ubuntu-16.04
+  #- name: ubuntu-14.04
+  #- name: ubuntu-16.04
   - name: centos-6.7
-  - name: centos-7.1
+  #- name: centos-7.1
 
 suites:
   - name: default
     run_list:
-      - recipe[cic_trendmicro_agent::default]
+      - cic_trendmicro_agent::default.rb
+      - cic_trendmicro_agent::cron-dsa-check-in-with-manager.rb
+      - cic_trendmicro_agent::cron-dsa-scan-for-malware.rb
+      - cic_trendmicro_agent::cron-dsa-recommend-scan.rb
+      - cic_trendmicro_agent::cron-dsa-integrity-scan.rb
+      - cic_trendmicro_agent::cron-dsa-rebuild-integrity-baseline.rb
+      - cic_trendmicro_agent::cron-dsa-agent-reset.rb
+      
+      
+      
     attributes:

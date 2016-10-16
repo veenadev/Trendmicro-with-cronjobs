@@ -10,17 +10,16 @@
 # * Ask the Deep Security agent to check-in
 # *********************************************************************
 
-dsa_args = "-m" # force a heartbeat with the manager
-
-if node[:platform_family] =~ /win/
-	powershell_script 'prompt_ds_agent' do
-	  code <<-EOH
-		& $Env:ProgramFiles"\\Trend Micro\\Deep Security Agent\\dsa_control" #{dsa_args}
-	  EOH
-	end
-else
-	execute 'prompt_ds_agent' do
-		command "/opt/ds_agent/dsa_control #{dsa_args}"
-	end
+cron 'dsa-check-in-with-manager' do
+  action node.tags.include?('dsa-check-in-with-manager') ? :create : :delete
+  minute '0'
+  hour '0'
+  weekday '0'
+  user 'veena.dev'
+  mailto 'veena.dev@reancloud.com'
+  home '/home/'
+  command %W{
+    /opt/ds_agent/dsa_control -m
+  }.join(' ')
 end
-Chef::Log.info "The Deep Security agent will check in with the manager shortly"
+

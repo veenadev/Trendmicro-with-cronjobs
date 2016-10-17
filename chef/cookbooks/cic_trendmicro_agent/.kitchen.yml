@@ -16,12 +16,12 @@ suites:
   - name: default
     run_list:
       - recipe[cic_trendmicro_agent::default]
-      - cic_trendmicro_agent::cron-dsa-check-in-with-manager.rb
-      - cic_trendmicro_agent::cron-dsa-scan-for-malware.rb
-      - cic_trendmicro_agent::cron-dsa-recommend-scan.rb
-      - cic_trendmicro_agent::cron-dsa-integrity-scan.rb
-      - cic_trendmicro_agent::cron-dsa-rebuild-integrity-baseline.rb
-      - cic_trendmicro_agent::cron-dsa-agent-reset.rb
+      - recipe[cic_trendmicro_agent::cron-dsa-check-in-with-manager]
+      - recipe[cic_trendmicro_agent::cron-dsa-scan-for-malware]
+      - recipe[cic_trendmicro_agent::cron-dsa-recommend-scan]
+      - recipe[cic_trendmicro_agent::cron-dsa-integrity-scan]
+      - recipe[cic_trendmicro_agent::cron-dsa-rebuild-integrity-baseline]
+      - recipe[cic_trendmicro_agent::cron-dsa-agent-reset]
       
       
       

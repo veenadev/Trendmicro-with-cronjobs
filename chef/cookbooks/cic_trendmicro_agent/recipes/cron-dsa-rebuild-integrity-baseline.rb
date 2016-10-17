@@ -18,7 +18,7 @@ cron 'dsa-rebuild-integrity-baseline' do
   weekday '1'
   user 'veena.dev'
   mailto 'veena.dev@reancloud.com'
-  home '/home/'
+  home '/root'
   command '/opt/ds_agent/dsa_control -m "RebuildBaseline:true"'
 
   }.join(' ')

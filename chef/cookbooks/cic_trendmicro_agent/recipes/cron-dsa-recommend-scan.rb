@@ -14,9 +14,9 @@ cron 'dsa-recommend-scan' do
   minute '0'
   hour '0'
   weekday '1'
-  user 'veena.dev'
+  user 'veena'
   mailto 'veena.dev@reancloud.com'
-  home '/home/'
+  home '/root'
   command '/opt/ds_agent/dsa_control -m "RecommendationScan:true"'
-  }.join(' ')
+ 
 end

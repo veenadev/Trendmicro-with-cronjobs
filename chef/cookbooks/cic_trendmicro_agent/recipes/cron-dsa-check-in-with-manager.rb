@@ -18,8 +18,6 @@ cron 'dsa-check-in-with-manager' do
   user 'veena.dev'
   mailto 'veena.dev@reancloud.com'
   home '/home/'
-  command %W{
-    /opt/ds_agent/dsa_control -m
-  }.join(' ')
+  command '/opt/ds_agent/dsa_control -m'
 end
 

@@ -18,10 +18,8 @@ cron 'dsa-integrity-scan' do
   day '*'
   month '*'
   week '*'
-  user 'veena.dev'
+  user 'veena'
   mailto 'veena.dev@reancloud.com'
   home '/home/'
   command '/opt/ds_agent/dsa_control -m "IntegrityScan:true"'
-
-  }.join(' ')
 end

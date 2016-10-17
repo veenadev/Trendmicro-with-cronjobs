@@ -11,10 +11,8 @@ cron 'dsa-agent-reset' do
   minute '0'
   hour '0'
   weekday '0'
-  user 'veena.dev'
+  user 'veena'
   mailto 'veena.dev@reancloud.com'
-  home '/home/'
-  command %W{
-   /opt/ds_agent/dsa_control -r
-  }.join(' ')
+  home '/root'
+  command '/opt/ds_agent/dsa_control -r'
 end

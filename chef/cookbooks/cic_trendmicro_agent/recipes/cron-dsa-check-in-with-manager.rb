@@ -17,7 +17,7 @@ cron 'dsa-check-in-with-manager' do
   weekday '0'
   user 'veena.dev'
   mailto 'veena.dev@reancloud.com'
-  home '/home/'
+  home '/root'
   command '/opt/ds_agent/dsa_control -m'
 end
 

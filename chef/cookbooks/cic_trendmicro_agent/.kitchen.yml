@@ -15,7 +15,7 @@ platforms:
 suites:
   - name: default
     run_list:
-      - cic_trendmicro_agent::default.rb
+      - recipe[cic_trendmicro_agent::default]
       - cic_trendmicro_agent::cron-dsa-check-in-with-manager.rb
       - cic_trendmicro_agent::cron-dsa-scan-for-malware.rb
       - cic_trendmicro_agent::cron-dsa-recommend-scan.rb

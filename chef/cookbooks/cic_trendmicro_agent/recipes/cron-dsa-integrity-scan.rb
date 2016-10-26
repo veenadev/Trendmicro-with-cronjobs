@@ -17,7 +17,7 @@ cron 'dsa-integrity-scan' do
   hour '9'
   day '*'
   month '*'
-  week '*'
+  weekday '*'
   user 'veena'
   mailto 'veena.dev@reancloud.com'
   home '/home/'

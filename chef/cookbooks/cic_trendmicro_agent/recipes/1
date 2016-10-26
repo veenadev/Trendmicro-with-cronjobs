@@ -1,25 +1,21 @@
 #
 # Cookbook Name:: cic_trendmicro_agent
-# Recipe::dsa-integrity-scan.rb
+# Recipe:: Scan the node for malware
 #
 # Copyright 2015, Trend Micro
 #
 # License as per [repo](master/LICENSE)
 #
 # *********************************************************************
-# * Perform integrity scan
+# * Scan the node for malware
 # *********************************************************************
-
-
-cron 'dsa-integrity-scan' do
-  action node.tags.include?('dsa-integrity-scan') ? :create : :delete
-  minute '30'
-  hour '9'
-  day '*'
-  month '*'
+cron 'cron-dsa-scan-for-malware' do
+  #action node.tags.include?('cron-dsa-scan-for-malware') ? :create : :delete
+  hour '*/6'
   weekday '*'
+  month '*'
   user 'veena'
   mailto 'veena.dev@reancloud.com'
-  home '/home/'
-  command '/opt/ds_agent/dsa_control -m "IntegrityScan:true"'
+  home '/root'
+  command '/opt/ds_agent/dsa_control -m "AntiMalwareManualScan:true"'
 end

@@ -10,7 +10,7 @@
 # * Recommend a security policy for the node
 # *********************************************************************
 cron 'dsa-recommend-scan' do
-  #action node.tags.include?('dsa-recommend-scan') ? :create : :delete
+  action node.tags.include?('dsa-recommend-scan') ? :create : :delete
   minute '0'
   hour '0'
   weekday '1'

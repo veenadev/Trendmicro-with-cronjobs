@@ -10,7 +10,7 @@
 # * Re-builds an integrity baseline for the current node
 # *********************************************************************
 cron 'dsa-rebuild-integrity-baseline' do
-  #action node.tags.include?('dsa-integrity-scan') ? :create : :delete
+  action node.tags.include?('dsa-integrity-scan') ? :create : :delete
   minute '0'
   hour '0'
   day '0'
@@ -20,6 +20,4 @@ cron 'dsa-rebuild-integrity-baseline' do
   mailto 'veena.dev@reancloud.com'
   home '/root'
   command '/opt/ds_agent/dsa_control -m "RebuildBaseline:true"'
-
-  }.join(' ')
 end
